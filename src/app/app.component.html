@@ -1,2 +1,10 @@
-<app-orbit-list [satellites]="sourceList"></app-orbit-list>
+<app-orbit-list [satellites]="displayList"></app-orbit-list>
+
+ <div class="search-form">
+  <!-- Add an Angular (keyup.enter) handler to the <input> tag that calls search(searchTerm.value). searchTerm is the local variable defined in <input> to store the data entered by the user -->
+  <!-- #searchTerm defines the local variable searchTerm -->
+  <input #searchTerm (keyup.enter)="search(searchTerm.value)" />
+  <!-- Add an Angular (click) handler to the <button> that also calls search(searchTerm.value) -->
+  <button (click)="search(searchTerm.value)">Enter</button>
+ </div>
 

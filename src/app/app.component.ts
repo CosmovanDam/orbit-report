@@ -13,6 +13,7 @@ export class AppComponent {
     this.sourceList = [];
     let satellitesUrl = 'https://handlers.education.launchcode.org/static/satellites.json';
 
+    // Fetch json
     window.fetch(satellitesUrl).then(function(response) {
       response.json().then(function(data) {
 
@@ -21,7 +22,7 @@ export class AppComponent {
           let satellite = new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
           this.sourceList.push(satellite);
         }
-      }.bind(this));
+      }.bind(this)); // .bind(this) is beyond scope of class but crucial for this function
     }.bind(this));
   }
 }
